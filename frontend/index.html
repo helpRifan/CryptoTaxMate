@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CryptoTaxMate</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-color: #2979FF;
+            --secondary-color: #1E1E1E;
+            --background-color: #121212;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B3B3B3;
+            --accent-color: #1E1E1E;
+            --button-primary-hover: #1c64f2;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+        }
+        .layout-container {
+            width: 100%;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        @media (min-width: 640px) {
+            .layout-container {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .layout-container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+        .header {
+            background-color: var(--background-color);
+            border-bottom: 1px solid #374151; /* border-gray-700 */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .header_content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+        .nav_links {
+            display: flex;
+            gap: 2rem; /* space-x-8 */
+        }
+        .nav_link {
+            color: var(--text-secondary);
+            transition-property: color;
+            transition-duration: 200ms;
+        }
+        .nav_link:hover {
+            color: var(--text-primary);
+        }
+        .main_content {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .page_title {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .section {
+            background-color: var(--secondary-color);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #374151; /* border-gray-700 */
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        }
+        .section_title {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .card {
+            background-color: var(--secondary-color);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            border: 1px solid #374151; /* border-gray-700 */
+        }
+        .button_primary {
+            background-color: var(--primary-color);
+            color: #fff;
+            font-weight: 500;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            border-radius: 0.375rem;
+            transition-property: background-color, color;
+            transition-duration: 200ms;
+            outline: none;
+            border: none;
+        }
+        .button_primary:hover {
+            background-color: var(--button-primary-hover);
+        }
+        .button_primary:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        .button_secondary {
+            background-color: #4B5563; /* bg-gray-600 */
+            color: var(--text-primary);
+            font-weight: 500;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            border-radius: 0.375rem;
+            transition-property: background-color, color;
+            transition-duration: 200ms;
+            outline: none;
+            border: none;
+        }
+        .button_secondary:hover {
+            background-color: #6B7280; /* bg-gray-500 */
+        }
+        .button_secondary:focus {
+            outline: 2px solid #6B7280; /* ring-gray-500 */
+            outline-offset: 2px;
+        }
+        .input {
+            width: 100%;
+            border: 1px solid #4B5563; /* border-gray-600 */
+            border-radius: 0.375rem;
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            background-color: var(--accent-color);
+            color: var(--text-primary);
+            outline: none;
+        }
+        .input:focus {
+            outline: 2px solid var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        .typography_h1 {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+        .typography_h2 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .typography_body {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        .table {
+            min-width: 100%;
+            border-collapse: collapse;
+        }
+        .table th,
+        .table td {
+            border-bottom: 1px solid #374151; /* divide-y divide-gray-700 */
+        }
+        .table_head {
+            background-color: #1F2937; /* bg-gray-800 */
+        }
+        .table_row:hover {
+            background-color: #1F2937; /* hover:bg-gray-800 */
+            transition-property: background-color;
+            transition-duration: 200ms;
+        }
+        .table_cell {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            white-space: nowrap;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        .table_header {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+            text-align: left;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body>
+<div class="min-h-screen">
+<header class="header">
+<div class="layout-container">
+<div class="header_content">
+<div class="flex items-center gap-3">
+<svg class="text-[var(--primary-color)]" fill="none" height="32" viewBox="0 0 48 48" width="32" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+<h1 class="logo">CryptoTaxMate</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-gray-700 transition-colors duration-200">
+
+</button>
+</nav>
+</div>
+</div>
+</header>
+<main class="main_content layout-container">
+<div class="max-w-4xl mx-auto">
+<div class="mb-8">
+<h1 class="page_title">Capital Gains Calculator</h1>
+<p class="typography_body">Upload your transaction data to calculate your crypto capital gains.</p>
+</div>
+<section class="section">
+<div class="grid md:grid-cols-2 gap-8 items-center">
+<div id="drop-zone" class="flex flex-col items-center justify-center gap-4 rounded-lg border-2 border-dashed border-gray-600 p-12 text-center">
+<svg class="text-[var(--primary-color)] mb-2" fill="currentColor" height="48" viewBox="0 0 256 256" width="48" xmlns="http://www.w3.org/2000/svg">
+<path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31L188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-42.34-77.66a8,8,0,0,1-11.32,11.32L128,131.31l-18.34,18.35a8,8,0,0,1-11.32-11.32L116.69,120l-18.35-18.34a8,8,0,0,1,11.32-11.32L128,108.69l18.34-18.35a8,8,0,0,1,11.32,11.32L139.31,120Z"></path>
+</svg>
+<p class="font-semibold text-[var(--text-primary)]">Drag and drop your CSV or JSON file here</p>
+<p class="typography_body">or</p>
+<button id="browseButton" class="button_secondary">Browse Files</button>
+<input type="file" id="fileInput" class="hidden" />
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="font-semibold text-[var(--text-primary)]">Settings</h3>
+<div>
+<label class="block text-sm font-medium text-[var(--text-secondary)] mb-1" for="country">Country</label>
+<select class="input" id="country" name="country">
+<option value="USA">USA</option>
+<option value="India">India</option>
+<option value="UK">UK</option>
+</select>
+</div>
+<button id="calculateButton" class="button_primary w-full justify-center">Calculate Gains</button>
+</div>
+</div>
+</section>
+<div id="results" style="display: none;">
+<section class="section">
+<h2 class="section_title">Realized Gains</h2>
+<div class="overflow-x-auto">
+<table class="table">
+<thead class="table_head">
+<tr>
+<th class="table_header">Date</th>
+<th class="table_header">Type/Asset</th>
+<th class="table_header text-right">Proceeds</th>
+<th class="table_header text-right">Cost Basis</th>
+<th class="table_header text-right">Gain/Loss</th>
+<th class="table_header text-right">Tax Owed</th>
+</tr>
+</thead>
+<tbody id="realizedGainsBody" class="divide-y divide-gray-700">
+</tbody>
+</table>
+</div>
+</section>
+<section class="section">
+<h2 class="section_title">Unrealized Gains</h2>
+<div class="overflow-x-auto">
+<table class="table">
+<thead class="table_head">
+<tr>
+<th class="table_header">Date</th>
+<th class="table_header">Type/Asset</th>
+<th class="table_header text-right">Amount</th>
+<th class="table_header text-right">Cost Basis</th>
+<th class="table_header text-right">Gain/Loss</th>
+<th class="table_header text-right">Tax Owed</th>
+</tr>
+</thead>
+<tbody id="unrealizedGainsBody" class="divide-y divide-gray-700">
+</tbody>
+</table>
+</div>
+</section>
+<section class="section">
+<div class="grid md:grid-cols-2 gap-8 items-center">
+<div id="taxTipsSection">
+<h2 class="section_title">Tax Saving Tips</h2>
+<p id="tipsList" class="typography_body"></p>
+</div>
+<div class="text-center">
+<button id="downloadButton" class="button_primary">Download Tax Report (PDF)</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</div>
+
+<script>
+    let reportData = {};
+
+    const dropZone = document.getElementById('drop-zone');
+    const browseButton = document.getElementById('browseButton');
+    const fileInput = document.getElementById('fileInput');
+    const calculateButton = document.getElementById('calculateButton');
+    let downloadButton = document.getElementById('downloadButton');
+
+    browseButton.addEventListener('click', () => fileInput.click());
+    calculateButton.addEventListener('click', () => uploadFile());
+    // downloadButton event listener will be added after results are displayed
+    if (downloadButton) {
+        downloadButton.addEventListener('click', () => downloadReport());
+    }
+
+    dropZone.addEventListener('dragover', (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+        event.dataTransfer.dropEffect = 'copy';
+        dropZone.classList.add('border-blue-500');
+    });
+
+    dropZone.addEventListener('dragleave', (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+        dropZone.classList.remove('border-blue-500');
+    });
+
+    dropZone.addEventListener('drop', (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+        dropZone.classList.remove('border-blue-500');
+        const files = event.dataTransfer.files;
+        if (files.length > 0) {
+            fileInput.files = files;
+            // Optionally, display the file name
+        }
+    });
+
+    fileInput.addEventListener('change', () => {
+        // Optionally, display the file name
+    });
+
+    function formatCurrency(value, currencySymbol) {
+        return `${currencySymbol}${value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    }
+
+    function uploadFile() {
+        const file = fileInput.files[0];
+        if (!file) {
+            alert('Please select a file first.');
+            return;
+        }
+
+        const country = document.getElementById('country').value;
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('country', country);
+
+        fetch('http://localhost:5001/upload', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert('Error: ' + data.error);
+                return;
+            }
+            reportData = data;
+            displayResults(data);
+            displayTips(data.tax_saving_tips);
+            document.getElementById('results').style.display = 'block';
+            // Attach download event after results are shown
+            downloadButton = document.getElementById('downloadButton');
+            if (downloadButton) {
+                // Remove previous event listeners by cloning the node
+                const newButton = downloadButton.cloneNode(true);
+                downloadButton.parentNode.replaceChild(newButton, downloadButton);
+                newButton.addEventListener('click', () => downloadReport());
+                downloadButton = newButton;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please check the console.');
+        });
+    }
+
+    function displayResults(data) {
+        const realizedGainsBody = document.getElementById('realizedGainsBody');
+        const unrealizedGainsBody = document.getElementById('unrealizedGainsBody');
+        realizedGainsBody.innerHTML = '';
+        unrealizedGainsBody.innerHTML = '';
+
+        if (data.realized_gains && data.realized_gains.length > 0) {
+            data.realized_gains.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = 'table_row';
+                row.innerHTML = `
+                    <td class="table_cell">${item.Date}</td>
+                    <td class="table_cell font-medium text-[var(--text-primary)]">${item.Transaction_Type.toUpperCase()} ${item.Asset}</td>
+                    <td class="table_cell text-right">${formatCurrency(item.Proceeds, data.currency_symbol)}</td>
+                    <td class="table_cell text-right">${formatCurrency(item.Cost_Basis, data.currency_symbol)}</td>
+                    <td class="table_cell text-right ${item.Gain >= 0 ? 'text-green-500' : 'text-red-500'}">${formatCurrency(item.Gain, data.currency_symbol)}</td>
+                    <td class="table_cell text-right text-red-500">${formatCurrency(item.Tax_Owed, data.currency_symbol)}</td>
+                `;
+                realizedGainsBody.appendChild(row);
+            });
+        }
+
+        if (data.unrealized_gains && data.unrealized_gains.length > 0) {
+            data.unrealized_gains.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = 'table_row';
+                row.innerHTML = `
+                    <td class="table_cell">${item.Date}</td>
+                    <td class="table_cell font-medium text-[var(--text-primary)]">${item.Transaction_Type.toUpperCase()} ${item.Asset}</td>
+                    <td class="table_cell text-right">${item.Amount.toFixed(6)}</td>
+                    <td class="table_cell text-right">${formatCurrency(item.Cost_Basis, data.currency_symbol)}</td>
+                    <td class="table_cell text-right ${item.Gain >= 0 ? 'text-green-500' : 'text-red-500'}">${formatCurrency(item.Gain, data.currency_symbol)}</td>
+                    <td class="table_cell text-right text-red-500">${formatCurrency(0, data.currency_symbol)}</td>
+                `;
+                unrealizedGainsBody.appendChild(row);
+            });
+        }
+    }
+
+    function displayTips(tips) {
+        const tipsSection = document.getElementById('taxTipsSection');
+        const tipsList = document.getElementById('tipsList');
+        if (tips && tips.length > 0) {
+            tipsList.innerHTML = tips.join('<br>');
+            tipsSection.style.display = 'block';
+        } else {
+            tipsSection.style.display = 'none';
+        }
+    }
+
+    function downloadReport() {
+        if (!reportData.realized_gains && !reportData.unrealized_gains) {
+            alert("Please calculate the gains first.");
+            return;
+        }
+        fetch('http://localhost:5001/report_pdf', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(reportData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.blob();
+        })
+        .then(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'tax_report.pdf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while generating the report.');
+        });
+    }
+</script>
+</body></html>
