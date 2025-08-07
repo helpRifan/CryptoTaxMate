@@ -14,7 +14,7 @@ Build a tool that automates tax calculations for crypto transactions and simplif
 ## ✅ Core Features
 
 - 📥 **Import Crypto Transactions**  
-  Supports `.csv` files (sample formats provided in `Sample data/`) with transactions like buys, sells, and trades.
+  Supports `.csv` files (sample formats provided in (`/Sample data/`) with transactions like buys, sells, and trades.
 
 - 💹 **Capital Gains Calculation**  
   Computes capital gains/losses using country-specific tax regulations (currently USA, UK, and India).
@@ -102,7 +102,7 @@ fpdf2
 | Name                  | GitHub Username | Role                            | Contributions                                                                 |
 |-----------------------|------------------|----------------------------------|--------------------------------------------------------------------------------|
 | **Rifan Ajmal**       | [@helpRifan](https://github.com/helpRifan) | Full-Stack Dev | Flask backend, tax logic (multi-country), PDF generation, UI integration      |
-| **Rohan Plato**       | —                | Frontend Lead                    | Designed and structured responsive UI with TailwindCSS                        |
+| **Rohan Plato**       | @roshanplato-beep                | Frontend Lead                    | Designed and structured responsive UI with TailwindCSS                        |
 | **Siddharth Pothineni** | —              | Tax Rule Analyst                 | Implemented tax logic rules for India, UK, and USA                            |
 | **Rakshitha Aravind** | —                | Data Architect                   | Handled CSV parsing, cost basis logic, and gain/loss tracking                 |
 | **Salai Jayapadham**  | —                | Testing & Optimization           | Performed testing, fixed bugs, and optimized calculations                     |
@@ -111,6 +111,4 @@ fpdf2
 
 ---
 
-## 📃 License
 
-This project is licensed under the MIT License.
