@@ -249,6 +249,7 @@
 <p class="typography_body">or</p>
 <button id="browseButton" class="button_secondary">Browse Files</button>
 <input type="file" id="fileInput" class="hidden" />
+<p id="fileNameDisplay" class="text-sm text-[var(--text-secondary)]"></p>
 </div>
 <div class="flex flex-col gap-4">
 <h3 class="font-semibold text-[var(--text-primary)]">Settings</h3>
@@ -359,9 +360,27 @@
         }
     });
 
-    fileInput.addEventListener('change', () => {
-        // Optionally, display the file name
-    });
+    function updateFileNameDisplay() {
+    const fileNameDisplay = document.getElementById('fileNameDisplay');
+    if (fileInput.files && fileInput.files[0]) {
+        fileNameDisplay.textContent = `Selected file: ${fileInput.files[0].name}`;
+    } else {
+        fileNameDisplay.textContent = '';
+    }
+}
+
+fileInput.addEventListener('change', updateFileNameDisplay);
+
+dropZone.addEventListener('drop', (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    dropZone.classList.remove('border-blue-500');
+    const files = event.dataTransfer.files;
+    if (files.length > 0) {
+        fileInput.files = files;
+        updateFileNameDisplay();
+    }
+});
 
     function formatCurrency(value, currencySymbol) {
         return `${currencySymbol}${value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
