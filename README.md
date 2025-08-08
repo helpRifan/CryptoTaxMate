@@ -102,10 +102,10 @@ fpdf2
 | Name                  | GitHub Username | Role                            | Contributions                                                                 |
 |-----------------------|------------------|----------------------------------|--------------------------------------------------------------------------------|
 | **Rifan Ajmal**       | [@helpRifan](https://github.com/helpRifan) | Full-Stack Dev | Flask backend, tax logic (multi-country), PDF generation, UI integration      |
-| **Rohan Plato**       | @roshanplato-beep                | Frontend Lead                    | Designed and structured responsive UI with TailwindCSS                        |
-| **Siddharth Pothineni** | —              | Tax Rule Analyst                 | Implemented tax logic rules for India, UK, and USA                            |
-| **Rakshitha Aravind** | —                | Data Architect                   | Handled CSV parsing, cost basis logic, and gain/loss tracking                 |
-| **Salai Jayapadham**  | —                | Testing & Optimization           | Performed testing, fixed bugs, and optimized calculations                     |
+| **Rohan Plato**       | [@roshanplato-beep](https://github.com/roshanplato-beep)                | Frontend Lead                    | Designed and structured responsive UI with TailwindCSS                        |
+| **Siddharth Pothineni** | [@Sidthedud](https://github.com/SSidthedud)             | Tax Rule Analyst                 | Implemented tax logic rules for India, UK, and USA                            |
+| **Rakshitha Aravind** | [@rakhithaarvind2007-cpu](https://github.com/rakshithaarvind2007-cpu)                | Data Architect                   | Handled CSV parsing, cost basis logic, and gain/loss tracking                 |
+| **Salai Jayapadham**  | [@jaya_padham](https://www.instagram.com/jaya_padham/)                | Testing & Optimization           | Performed testing, fixed bugs, and optimized calculations                     |
 
 > 🙌 Thanks to the whole team for collaborative effort and contribution!
 
